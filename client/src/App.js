@@ -16,8 +16,8 @@ function App() {
     >
       <Routes>
         <Route path="/" element={<Applayout />} />
-        <Route path="/add" element={<Addpage />} />
-        <Route path="/edit" element={<Editpage />} />
+        <Route path="add" element={<Addpage />} />
+        <Route path="edit" element={<Editpage />} />
       </Routes>
       <Applayout />
     </Grid>

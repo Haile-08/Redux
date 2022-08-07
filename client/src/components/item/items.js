@@ -1,11 +1,17 @@
-import { Card, CardActions, CardContent, Typography } from "@mui/material";
+import {
+  Card,
+  CardActions,
+  CardContent,
+  CardHeader,
+  Typography,
+} from "@mui/material";
 import React from "react";
 import { Link } from "react-router-dom";
 
 import DeleteButton from "../Button/DeleteButton";
 import EditButton from "../Button/EditButton";
 
-const Items = () => {
+const Items = ({ id, title, text }) => {
   return (
     <Card
       sx={{
@@ -13,14 +19,15 @@ const Items = () => {
         alignItems: "center",
         justifyContent: "space-between",
         backgroundColor: "#57606f",
-        minwidth: "400px",
-        maxwidth: "500px",
+        width: "400px",
+        margin: "10px",
       }}
       maxwidth
     >
+      <CardHeader title={title} />
       <CardContent>
         <Typography sx={{ color: "#dfe4ea", marginLeft: "50px" }}>
-          this is the card
+          {text}
         </Typography>
       </CardContent>
       <CardActions
