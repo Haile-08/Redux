@@ -1,13 +1,20 @@
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
+import Button from "@mui/material/Button";
+import AddIcon from "@mui/icons-material/Add";
 
-import Addbutton from "../Button/Addbutton";
 import BackButton from "../Button/BackButton";
+import { addItem } from "../../features/item";
+import { useDispatch } from "react-redux";
 
 const Addpage = () => {
+  const dispatch = useDispatch();
+  const [id, setId] = useState(3);
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
   return (
     <Grid
       container
@@ -48,6 +55,10 @@ const Addpage = () => {
             margin: "30px",
             color: "#dfe4ea",
           }}
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
         />
         <TextField
           id="outlined-multiline-flexible"
@@ -58,8 +69,27 @@ const Addpage = () => {
             margin: "30px",
             color: "#dfe4ea",
           }}
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
         />
-        <Addbutton />
+        <Link to="/">
+          <Button
+            variant="contained"
+            endIcon={<AddIcon />}
+            sx={{
+              margin: "30px",
+            }}
+            onClick={() => {
+              setId(id + 1);
+              dispatch(addItem({ id, title, text }));
+            }}
+          >
+            ADD
+          </Button>
+        </Link>
+        {console.log(id, title, text)}
       </Box>
     </Grid>
   );
