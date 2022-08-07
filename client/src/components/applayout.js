@@ -1,10 +1,11 @@
 import { Grid, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import Items from "./item/items";
 import Addbutton from "./Button/Addbutton";
 
-function applayout() {
+function Applayout() {
   return (
     <Grid
       container
@@ -21,9 +22,11 @@ function applayout() {
         Redux Todo App
       </Typography>
       <Items />
-      <Addbutton />
+      <Link to="/add">
+        <Addbutton />
+      </Link>
     </Grid>
   );
 }
 
-export default applayout;
+export default Applayout;

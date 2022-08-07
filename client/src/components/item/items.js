@@ -1,5 +1,6 @@
 import { Card, CardActions, CardContent, Typography } from "@mui/material";
 import React from "react";
+import { Link } from "react-router-dom";
 
 import DeleteButton from "../Button/DeleteButton";
 import EditButton from "../Button/EditButton";
@@ -28,7 +29,9 @@ const Items = () => {
           flexDirection: "row",
         }}
       >
-        <EditButton />
+        <Link to="/edit">
+          <EditButton />
+        </Link>
         <DeleteButton />
       </CardActions>
     </Card>

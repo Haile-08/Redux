@@ -1,48 +1,63 @@
 import { Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React from "react";
+import TextField from "@mui/material/TextField";
+import { Link } from "react-router-dom";
+
 import Addbutton from "../Button/Addbutton";
+import BackButton from "../Button/BackButton";
 
 const Addpage = () => {
   return (
     <Grid
       container
       spacing={0}
-      direction="column"
       alignItems="center"
       justifyContent="center"
       style={{
+        display: "flex",
+        flexDirection: "row",
         minHeight: "100vh",
         maxHeight: "auto",
       }}
+      minWidth={800}
     >
       <Box
         sx={{
           display: "flex",
+          flexDirection: "column",
           justifyContent: "center",
           alignContent: "center",
-          width: "300px",
+          width: "600px",
           height: "500px",
-          backgroundColor: "#5352ed",
+          backgroundColor: "#57606f",
+          borderRadius: "10px",
         }}
       >
-        <Typography variant="h4">ADD</Typography>
+        <Link to="/">
+          <BackButton />
+        </Link>
+        <Typography variant="h4" sx={{ color: "#dfe4ea", paddingLeft: "50px" }}>
+          ADD
+        </Typography>
         <TextField
           id="outlined-basic"
           label="Title"
           variant="outlined"
           sx={{
             margin: "30px",
+            color: "#dfe4ea",
           }}
         />
         <TextField
-          id="standard-multiline-flexible"
-          label="Text"
+          id="outlined-multiline-flexible"
+          label="Multiline"
           multiline
-          maxRows={4}
-          value={value}
-          onChange={handleChange}
-          variant="standard"
+          maxRows={5}
+          sx={{
+            margin: "30px",
+            color: "#dfe4ea",
+          }}
         />
         <Addbutton />
       </Box>
