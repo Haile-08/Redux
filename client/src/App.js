@@ -19,7 +19,6 @@ function App() {
         <Route path="add" element={<Addpage />} />
         <Route path="edit" element={<Editpage />} />
       </Routes>
-      <Applayout />
     </Grid>
   );
 }
