@@ -1,12 +1,21 @@
-import { Grid, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
 import { Link } from "react-router-dom";
+import { updateItem } from "../../features/item";
+import { useDispatch } from "react-redux";
+import { useLocation } from "react-router-dom";
+import EditIcon from "@mui/icons-material/Edit";
 
-import EditButton from "../Button/EditButton";
 import BackButton from "../Button/BackButton";
+
 const Editpage = () => {
+  const [title, setTitle] = useState("");
+  const [text, setText] = useState("");
+  const dispatch = useDispatch();
+  const location = useLocation();
+  const { id } = location.state;
   return (
     <Grid
       container
@@ -47,6 +56,10 @@ const Editpage = () => {
             margin: "30px",
             color: "#dfe4ea",
           }}
+          value={title}
+          onChange={(e) => {
+            setTitle(e.target.value);
+          }}
         />
         <TextField
           id="outlined-multiline-flexible"
@@ -57,8 +70,23 @@ const Editpage = () => {
             margin: "30px",
             color: "#dfe4ea",
           }}
+          value={text}
+          onChange={(e) => {
+            setText(e.target.value);
+          }}
         />
-        <EditButton />
+        <Link to="/">
+          <Button
+            startIcon={<EditIcon />}
+            sx={{
+              color: "#2f3542",
+            }}
+            onClick={() => {
+              dispatch(updateItem({ id: id, title: title, text: text }));
+            }}
+          />
+        </Link>
+        {console.log(id, title, text)}
       </Box>
     </Grid>
   );

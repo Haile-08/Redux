@@ -9,7 +9,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import DeleteIcon from "@mui/icons-material/Delete";
-import deleteItem from "../../features/item";
+import { deleteItem } from "../../features/item";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 
@@ -45,9 +45,10 @@ const Items = () => {
                 flexDirection: "row",
               }}
             >
-              <Link to="/edit">
-                <EditButton />
+              <Link to="/edit" state={{ id: item.id }}>
+                <EditButton id={item.id} />
               </Link>
+              {console.log(item.id)}
 
               <Button
                 onClick={() => {

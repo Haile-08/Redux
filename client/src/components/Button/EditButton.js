@@ -2,7 +2,8 @@ import React from "react";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
 
-function EditButton() {
+
+function EditButton({ title, text, id }) {
   return (
     <Button
       startIcon={<EditIcon />}
